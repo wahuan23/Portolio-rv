@@ -2,169 +2,295 @@
 <html>
 
 <head>
-    <title>Elements - Spectral by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript>
-        <link rel="stylesheet" href="assets/css/noscript.css" />
-    </noscript>
-    <style>
-        html {
-            scroll-behavior: smooth; /* défilement fluide */
-        }
-    </style>
+	<title>KIDSHOME</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
 </head>
+ <style>
+		 * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000;
+            --secondary: #1a1a1a;
+            --accent: #00d4ff;
+            --accent-dark: #00a8cc;
+            --text-light: #ffffff;
+            --text-muted: #b0b0b0;
+            --bg-dark: #0a0a0a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+		 /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+	</style>
 
 <body class="is-preload">
 
-    <div id="page-wrapper">
-        <header id="header">
-            <h1><a href="index.html">KIDSHOME</a></h1>
-            <nav id="nav">
-                <ul>
-                    <li class="special">
-                        <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                        <div id="menu">
-                            <ul>
-                                <li><a href="index.html">Home</a></li>
-                                <li><a href="kidshome.html">About</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </header>
-
-        <section id="home" class="intro-section">
-            <div class="container-fond">
-                <div class="rowx align-items-center text-white">
-                    <!-- START THE CONTENT FOR THE INTRO -->
-                    <div class="cols-md-6 intros text-start">
-                        <h7 class="display-2">
-                            <span class="display-2--intro">KIDSHOME</span>
-                            <span class="display-2--description lh-base" style="margin-bottom: 40px;">
-                                Confiez nous vos enfants, nous ferons de notre espace son plus grand foyer
-                            </span>
-                        </h7>
-                        <!-- Bouton qui descend vers la section #main3 -->
-                        <a href="#main3">
-                            <button type="button" class="site-btn" style="border-radius: 40px;height: 70px;">
-                                Voir plus
-                                <span><i class="fas fa-arrow-right"></i></span>
-                            </button>
-                        </a>
-                    </div>
-                    <!-- START THE CONTENT FOR THE VIDEO -->
-                    <div class="cols-md-6 intros text-end">
-                        <div class="video-box">
-                            <img src="assets/img/pexels-ketut-subiyanto-4473888.jpg" alt="video illutration"
-                                class="img-fluid">
-                            <a href="#" class="glightbox position-absolute top-50 start-50 translate-middle">
-                                <span class="border-animation border-animation--border-1"></span>
-                                <span class="border-animation border-animation--border-2"></span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-                <path fill="#ffffff" fill-opacity="1"
-                    d="M0,160L48,176C96,192,192,224,288,208C384,192,480,128,576,133.3C672,139,768,213,864,202.7C960,192,1056,96,1152,74.7C1248,53,1344,107,1392,133.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
-                </path>
-            </svg>
-        </section>
-
-        <!-- Section cible pour le bouton "Voir plus" -->
-        <article id="main3">
-            <header>
-                <h2>kidshome</h2>
-                <p>REFONT SiteWeb kidshome <br /></p>
-            </header>
-            <section class="wrapper style5">
-                <div class="inner">
-                    <section>
-                        <h2>kidshome <br /></h2>
-                        <p>Cowork est une version site web de l'école KIDSHOME afin de gérer plus facilement
-                            l'inscription des éleves ainsi que la prise de rendez-vous <br />.</p>
-                        <div class="box alt">
-                            <div class="row gtr-50 gtr-uniform">
-                                <h2>TRAVAUX RÉALISÉS</h2>
-                                <p>
-                                    <strong>Rebranding de KIDSHOME :</strong> création d’une image plus accueillante et adaptée à
-                                    l’univers des enfants, tout en conservant un esprit chaleureux et familial.<br><br>
-                                    <strong>Refonte du site web :</strong> amélioration de l’interface (UI) et de l’expérience
-                                    utilisateur (UX) pour une navigation plus simple et intuitive.<br><br>
-                                    <strong>Création d’une nouvelle identité visuelle :</strong> recherche de couleurs modernes,
-                                    joyeuses et adaptées à un environnement enfantin.
-                                </p>
-                                <div class="col-12"><span class="image fit"><img src="assets/img/KIDSHOME2-01.png"
-                                            alt="" /></span></div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-                <div class="inner">
-                    <section>
-                        <div class="box alt">
-                            <div class="row gtr-50 gtr-uniform">
-                                <div class="col-12"><span class="image fit"><img src="images/cowork2.png"
-                                            alt="" /></span></div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </section>
-        </article>
-
-        <section id="three" class="wrapper style3 special">
-            <div class="inner">
-                <header class="major">
-                    <h2>LES OUTILS UTILISÉS </h2>
-                    <p>Afin de concevoir une application plus avancée, plusieurs outils professionnels ont été utilisés.</p>
-                </header>
-                <ul class="features">
-                    <li>
-                        <img src="assets/img/icon/figma.png" alt="Illustrator" style="width:70px; margin-bottom:15px;">
-                        <h3>FIGMA </h3>
-                        <p>Figma est un outil essentiel pour la création de maquettes, de prototypes et de designs modernes adaptés aux besoins des utilisateurs.</p>
-                    </li>
-                    <li>
-                        <img src="assets/img/icon/photoshop.png" alt="Illustrator" style="width:70px; margin-bottom:15px;">
-                        <h3>Adobe Photoshop</h3>
-                        <p>Adobe Photoshop est idéal pour la retouche et le traitement des images, ainsi que pour la création de visuels graphiques de haute qualité.</p>
-                    </li>
-                    <li>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg" alt="Illustrator" style="width:70px; margin-bottom:15px;">
-                        <h3>Adobe Illustrator</h3>
-                        <p>Adobe Illustrator est utilisé pour la création de logos, d’illustrations vectorielles et d’éléments graphiques précis.</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <footer id="footer">
-            <ul class="icons">
-                <li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+	<div id="page-wrapper">
+		<nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">KIDSHOME</div>
+            <ul class="nav-links">
+                <li><a href="index.html#accueil">Accueil</a></li>
+                <li><a href="index.html#projets">Projets</a></li>
+                <li><a href="index.html#a-propos">À propos</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
-            <ul class="copyright">
-                <li>&copy; KIDSHOME </li><li>Rova Rakotoson:</li>
-            </ul>
-        </footer>
+        </div>
+    </nav>
 
-    </div>
+		<section id="home" class="intro-section">
+			<div class="container-fond">
+				<div class="rowx align-items-center text-white">
+					<!-- START THE CONTENT FOR THE INTRO  -->
+					<div class="cols-md-6 intros text-start">
+						<h7 class="display-2">
+							<span class="display-2--intro">KIDSHOME</span>
+							<span class="display-2--description lh-base" style="margin-bottom: 40px;">
+								Confiez nous vos enfants , nous ferons de notre espace son plus grand foyer
+							</span>
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+						</h7>
+						<button type="button" class="site-btn" style="border-radius: 40px;height: 70px;">Voir plus
+							<span><i class="fas fa-arrow-right"></i></span>
+						</button>
+					</div>
+					<!-- START THE CONTENT FOR THE VIDEO -->
+					<div class="cols-md-6 intros text-end">
+						<div class="video-box">
+							<img src="assets/img/pexels-ketut-subiyanto-4473888.jpg" alt="video illutration"
+								class="img-fluid">
+							<a href="#" class="glightbox position-absolute top-50 start-50 translate-middle">
+
+								<span class="border-animation border-animation--border-1"></span>
+								<span class="border-animation border-animation--border-2"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+				<path fill="#ffffff" fill-opacity="1"
+					d="M0,160L48,176C96,192,192,224,288,208C384,192,480,128,576,133.3C672,139,768,213,864,202.7C960,192,1056,96,1152,74.7C1248,53,1344,107,1392,133.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+				</path>
+			</svg>
+
+
+		</section>
+		<article id="main3">
+			<header>
+				<h2>kidshome</h2>
+				<p>REFONT SiteWeb kidshome <br />
+				</p>
+			</header>
+			<section class="wrapper style5">
+				<div class="inner">
+					<section>
+						<h2>kidshome <br />
+						</h2>
+						<p>Cowork est une version site web de l'école KIDSHOME afin de gérer plus facilement
+							l'inscription des éleves ainsi que la prise de rendez-vous <br />
+							.</p>
+						<div class="box alt">
+							<div class="row gtr-50 gtr-uniform">
+
+								<h2>TRAVAUX RÉALISÉS
+								</h2>
+								<p>
+									<strong>Rebranding de KIDSHOME :</strong> création d’une image plus accueillante et adaptée à 
+									l’univers des enfants, tout en conservant un esprit chaleureux et familial.<br><br>
+
+									<strong>Refonte du site web :</strong> amélioration de l’interface (UI) et de l’expérience 
+									utilisateur (UX) pour une navigation plus simple et intuitive.<br><br>
+
+									<strong>Création d’une nouvelle identité visuelle :</strong> recherche de couleurs modernes, 
+									joyeuses et adaptées à un environnement enfantin.
+								</p>
+								<div class="col-12"><span class="image fit"><img src="assets/img/KIDSHOME2-01.png"
+											alt="" /></span></div>
+							</div>
+						</div>
+
+
+					</section>
+
+				</div>
+
+				<div class="inner">
+					<section>
+
+						<div class="box alt">
+							<div class="row gtr-50 gtr-uniform">
+								<div class="col-12"><span class="image fit"><img src="images/cowork2.png"
+											alt="" /></span></div>
+
+							</div>
+						</div>
+					</section>
+				</div>
+			</section>
+		</article>
+		<section id="three" class="wrapper style3 special">
+			<div class="inner">
+				<header class="major">
+					<h2>LES OUTILS UTILISÉS </h2>
+					<p>Afin de concevoir une application plus avancée, plusieurs outils professionnels ont été utilisés.</p>
+				</header>
+				<ul class="features">
+					<li >
+						<img src="assets/img/icon/figma.png"
+										alt="Illustrator" style="width:70px; margin-bottom:15px;">
+						<h3>FIGMA </h3>
+						<p>Figma est un outil essentiel pour la création de maquettes, de prototypes 
+						et de designs modernes adaptés aux besoins des utilisateurs.
+						</p>
+					</li>
+					<li>
+						<img src="assets/img/icon/photoshop.png"
+										alt="Illustrator" style="width:70px; margin-bottom:15px;">
+						<h3>Adobe Photoshop</h3>
+						<p>Adobe Photoshop est idéal pour la retouche et le traitement des images, 
+						ainsi que pour la création de visuels graphiques de haute qualité.
+						</p>
+					</li>
+					<li>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
+						alt="Illustrator" style="width:70px; margin-bottom:15px;">
+						<h3>Adobe Illustrator</h3>
+						<p>Adobe Illustrator est utilisé pour la création de logos, d’illustrations 
+						vectorielles et d’éléments graphiques précis.
+						</p>
+					</li>
+					<li>
+						
+						
+					</li>
+					
+
+				</ul>
+			</div>
+		</section>
+		<!-- Footer -->
+		 <footer id="footer">
+                <ul class="icons">
+                    <li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                    <li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                </ul>
+                <ul class="copyright">
+                    <li>&copy; KIDSHOME </li><li>Rova Rakotoson </li>
+                </ul>
+            </footer>
+
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script>
+		// Active navigation link based on scroll position
+		window.addEventListener('scroll', () => {
+			let current = '';
+			const sections = document.querySelectorAll('section[id]');
+			sections.forEach(section => {
+				const sectionTop = section.offsetTop;
+				const sectionHeight = section.clientHeight;
+				if (pageYOffset >= sectionTop - 200) {
+					current = section.getAttribute('id');
+				}
+			});
+
+			document.querySelectorAll('.nav-links a').forEach(link => {
+				link.classList.remove('active');
+				if (link.getAttribute('href').slice(1) === current) {
+					link.classList.add('active');
+				}
+			});
+		});
+	</script>
 
 </body>
 
