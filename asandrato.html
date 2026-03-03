@@ -5,251 +5,344 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Asandrato</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	 <style>
-		 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        :root {
-            --primary: #000;
-            --secondary: #1a1a1a;
-            --accent: #00d4ff;
-            --accent-dark: #00a8cc;
-            --text-light: #ffffff;
-            --text-muted: #b0b0b0;
-            --bg-dark: #0a0a0a;
-        }
+<head>
+	<title>Asandrato</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 
-        html {
-            scroll-behavior: smooth;
-        }
+	:root {
+		--primary: #000;
+		--secondary: #1a1a1a;
+		--accent: #00d4ff;
+		--accent-dark: #00a8cc;
+		--text-light: #ffffff;
+		--text-muted: #b0b0b0;
+		--bg-dark: #0a0a0a;
+	}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-		 /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 2rem;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        }
+	html {
+		scroll-behavior: smooth;
+	}
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+	body {
+		font-family: 'Poppins', sans-serif;
+		background: var(--bg-dark);
+		color: var(--text-light);
+		line-height: 1.6;
+		overflow-x: hidden;
+	}
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+	/* Navigation */
+	.navbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: rgba(10, 10, 10, 0.95);
+		backdrop-filter: blur(10px);
+		padding: 1.2rem 2rem;
+		z-index: 1000;
+		border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+	}
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
+	.nav-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
 
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+	.logo {
+		font-size: 1.4rem;
+		font-weight: 700;
+		background: linear-gradient(135deg, #00d4ff, #0099ff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
+	.nav-links {
+		display: flex;
+		gap: 2.5rem;
+		list-style: none;
+	}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
+	.nav-links a {
+		color: var(--text-muted);
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 0.95rem;
+		transition: color 0.3s ease;
+		position: relative;
+	}
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-	</style>
-	<body class="landing is-preload">
+	.nav-links a:hover,
+	.nav-links a.active {
+		color: var(--accent);
+	}
 
-		<!-- Page Wrapper -->
-			<div id="page-wrapper">
+	.nav-links a::after {
+		content: '';
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: var(--accent);
+		transition: width 0.3s ease;
+	}
 
-				 	<nav class="navbar">
-        <div class="nav-container">
-          <div class="logo">ASANDRATO</div>
-            <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#a-propos">À propos</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+	.nav-links a:hover::after,
+	.nav-links a.active::after {
+		width: 100%;
+	}
 
-				<!-- Banner -->
-					<section id="banner">
-						<div class="inner">
-							<h2>Asandrato</h2>
-							
-						</div>
-						<a href="#one" class="more scrolly">Learn More</a>
-					</section>
+	/* toggle button for mobile */
+	.nav-toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+	}
 
-				<!-- One -->
-					<section id="one" class="wrapper style1 special">
-						<div class="inner">
-							<header class="major">
-								<h2>Création d'une Identité <br />
-								de Marque Asandrato</h2>
-								<p>Le but du projet est de rehausser la culture Malagasy  <br />
-								via un visuel .</p>
-							</header>
-							<ul class="icons major">
-								<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
-								<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
-								<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
-							</ul>
-						</div>
-					</section>
+	.hamburger,
+	.hamburger::before,
+	.hamburger::after {
+		display: block;
+		width: 25px;
+		height: 3px;
+		background: var(--text-muted);
+		border-radius: 3px;
+		position: relative;
+		transition: all 0.3s ease;
+	}
 
-				<!-- Two -->
-					<section id="two" class="wrapper alt style2">
-						
-						<section class="spotlight">
-							<div class="image"><img src="assets/img/mood.png" alt="" /></div><div class="content">
-								<h2>PROCESS<br />
-								CREA </h2>
-								<p>Dans sa création , le plus grand défis était de persuader a l'aide d'une image
-									 les valeurs culturelles malagasy  <br> tout en restant moderne et attrayant.
+	.hamburger::before,
+	.hamburger::after {
+		content: '';
+		position: absolute;
+		left: 0;
+	}
 
-								
-								</p>
-							</div>
-						</section>
-						<section class="spotlight" >
-							<div class="image"><img src="assets/img/ASANDRATO2.png" style="height: auto;" alt="" /></div><div class="content">
-								<h2>Model proposé<br />
-								</h2>
-								<p>Un visuel avec plusieurs éléments qui distinguent les Malagasy notament : Le Maki , le Aloalo , le Zébu  <br> et les couleurs du drapeau malagasy . 
-									
-								</p>
-							</div>
-						</section>
-					</section>
+	.hamburger::before {
+		top: -8px;
+	}
 
-				<!-- Three -->
-					<section id="three" class="wrapper style3 special">
-						<div class="inner">
-							<header class="major">
-								<h2>LES OUTILS UTILISES </h2>
-								<p>Pour créer une image adaptée au Logo,<br> plusieurs outils ont été mis en œuvre.</p>
+	.hamburger::after {
+		top: 8px;
+	}
 
-							</header>
-							<ul class="features">
-									<li>
-								<img src="assets/img/icon/photoshop.png"
-												alt="Illustrator" style="width:70px; margin-bottom:15px;">
-								<h3>Adobe Photoshop</h3>
-								<p>Photoshop a été utilisé pour créer un visuel percutant et harmonieux.</p>
-							</li>
-							<li>
-								<img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
-								alt="Illustrator" style="width:70px; margin-bottom:15px;">
-								<h3>Adobe Illustrator</h3>
-								<p>Illustrator a servi à concevoir le logo en version vectorielle.</p>
-							</li>
-								
-							</ul>
-						</div>
-					</section>
+	@media (max-width: 768px) {
+		.nav-toggle {
+			display: block;
+		}
 
-				
+		.nav-links {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: rgba(10, 10, 10, 0.95);
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			padding: 1rem 0;
+			display: none;
+		}
 
-				<!-- Footer -->
-			 <footer id="footer">
-                <ul class="icons">
-                    <li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                    <li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; Asandrato</li><li>Rova Rakotoson </li>
-                </ul>
-            </footer>
+		.nav-links.open {
+			display: flex;
+		}
+	}
+</style>
 
+<body class="landing is-preload">
+
+	<!-- Page Wrapper -->
+	<div id="page-wrapper">
+
+		<nav class="navbar">
+			<div class="nav-container">
+				<div class="logo">ASANDRATO</div>
+				<!-- hamburger toggle for mobile -->
+				<button class="nav-toggle" aria-label="Ouvrir le menu">
+					<span class="hamburger"></span>
+				</button>
+				<ul class="nav-links">
+					<li><a href="index.html#accueil">Accueil</a></li>
+					<li><a href="index.html#projets">Projets</a></li>
+					<li><a href="index.html#a-propos">À propos</a></li>
+					<li><a href="index.html#contact">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<h2>Asandrato</h2>
 
 			</div>
+			<a href="#one" class="more scrolly">Learn More</a>
+		</section>
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery-3.3.1.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		 <script src="assets/js/jquery-3.3.1.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrollex.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/browser.min.js"></script>
-		<script src="assets/js/breakpoints.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<script src="assets/js/main.js"></script>
-		<script>
-			// Active navigation link based on scroll position
-			window.addEventListener('scroll', () => {
-				let current = '';
-				const sections = document.querySelectorAll('section[id]');
-				sections.forEach(section => {
-					const sectionTop = section.offsetTop;
-					const sectionHeight = section.clientHeight;
-					if (pageYOffset >= sectionTop - 200) {
-						current = section.getAttribute('id');
-					}
-				});
+		<!-- One -->
+		<section id="one" class="wrapper style1 special">
+			<div class="inner">
+				<header class="major">
+					<h2>Création d'une Identité <br />
+						de Marque Asandrato</h2>
+					<p>Le but du projet est de rehausser la culture Malagasy <br />
+						via un visuel .</p>
+				</header>
+				<ul class="icons major">
+					<li><span class="icon fa-gem major style1"><span class="label">Lorem</span></span></li>
+					<li><span class="icon fa-heart major style2"><span class="label">Ipsum</span></span></li>
+					<li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span></li>
+				</ul>
+			</div>
+		</section>
 
-				document.querySelectorAll('.nav-links a').forEach(link => {
-					link.classList.remove('active');
-					if (link.getAttribute('href').slice(1) === current) {
-						link.classList.add('active');
-					}
-				});
+		<!-- Two -->
+		<section id="two" class="wrapper alt style2">
+
+			<section class="spotlight">
+				<div class="image"><img src="assets/img/mood.png" alt="" /></div>
+				<div class="content">
+					<h2>PROCESS<br />
+						CREA </h2>
+					<p>Dans sa création , le plus grand défis était de persuader a l'aide d'une image
+						les valeurs culturelles malagasy <br> tout en restant moderne et attrayant.
+
+
+					</p>
+				</div>
+			</section>
+			<section class="spotlight">
+				<div class="image"><img src="assets/img/ASANDRATO2.png" style="height: auto;" alt="" /></div>
+				<div class="content">
+					<h2>Model proposé<br />
+					</h2>
+					<p>Un visuel avec plusieurs éléments qui distinguent les Malagasy notament : Le Maki , le Aloalo ,
+						le Zébu <br> et les couleurs du drapeau malagasy .
+
+					</p>
+				</div>
+			</section>
+		</section>
+
+		<!-- Three -->
+		<section id="three" class="wrapper style3 special">
+			<div class="inner">
+				<header class="major">
+					<h2>LES OUTILS UTILISES </h2>
+					<p>Pour créer une image adaptée au Logo,<br> plusieurs outils ont été mis en œuvre.</p>
+
+				</header>
+				<ul class="features">
+					<li>
+						<img src="assets/img/icon/photoshop.png" alt="Illustrator"
+							style="width:70px; margin-bottom:15px;">
+						<h3>Adobe Photoshop</h3>
+						<p>Photoshop a été utilisé pour créer un visuel percutant et harmonieux.</p>
+					</li>
+					<li>
+						<img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
+							alt="Illustrator" style="width:70px; margin-bottom:15px;">
+						<h3>Adobe Illustrator</h3>
+						<p>Illustrator a servi à concevoir le logo en version vectorielle.</p>
+					</li>
+
+				</ul>
+			</div>
+		</section>
+
+
+
+		<!-- Footer -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span
+							class="label">Facebook</span></a></li>
+				<li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span
+							class="label">Instagram</span></a></li>
+				<li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span
+							class="label">Email</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; Asandrato</li>
+				<li>Rova Rakotoson </li>
+			</ul>
+		</footer>
+
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+	<script>
+		// Active navigation link based on scroll position
+		window.addEventListener('scroll', () => {
+			let current = '';
+			const sections = document.querySelectorAll('section[id]');
+			sections.forEach(section => {
+				const sectionTop = section.offsetTop;
+				const sectionHeight = section.clientHeight;
+				if (pageYOffset >= sectionTop - 200) {
+					current = section.getAttribute('id');
+				}
 			});
-		</script>
 
-	</body>
+			document.querySelectorAll('.nav-links a').forEach(link => {
+				link.classList.remove('active');
+				if (link.getAttribute('href').slice(1) === current) {
+					link.classList.add('active');
+				}
+			});
+		});
+
+		// mobile menu toggle
+		const toggle = document.querySelector('.nav-toggle');
+		const navLinks = document.querySelector('.nav-links');
+		toggle.addEventListener('click', () => {
+			navLinks.classList.toggle('open');
+			// animate hamburger
+			toggle.classList.toggle('open');
+		});
+		// close menu when link clicked (optional)
+		document.querySelectorAll('.nav-links a').forEach(link => {
+			link.addEventListener('click', () => {
+				if (navLinks.classList.contains('open')) {
+					navLinks.classList.remove('open');
+				}
+			});
+		});
+	</script>
+
+</body>
+
 </html>

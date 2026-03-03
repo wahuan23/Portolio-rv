@@ -111,6 +111,65 @@
             width: 100%;
         }
 
+        /* toggle button for mobile */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger,
+        .hamburger::before,
+        .hamburger::after {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--text-muted);
+            border-radius: 3px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            left: 0;
+        }
+
+        .hamburger::before {
+            top: -8px;
+        }
+
+        .hamburger::after {
+            top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(10, 10, 10, 0.95);
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                padding: 1rem 0;
+                display: none;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+        }
+
         /* Hero Section */
         .hero-section {
             padding-top: 120px;
@@ -652,7 +711,11 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-          
+            <div class="logo"></div>
+            <!-- hamburger toggle for mobile -->
+            <button class="nav-toggle" aria-label="Ouvrir le menu">
+                <span class="hamburger"></span>
+            </button>
             <ul class="nav-links">
                 <li><a href="#accueil" class="active">Accueil</a></li>
                 <li><a href="#projets">Projets</a></li>
@@ -901,7 +964,8 @@
                             title="Instagram">📱</a>
                         <a href="https://facebook.com/rova.rakotoson.98" target="_blank" class="social-link"
                             title="Facebook">f</a>
-                        <a href="https://wa.me/+261383217610" target="_blank" class="social-link" title="WhatsApp">💚</a>
+                        <a href="https://wa.me/+261383217610" target="_blank" class="social-link"
+                            title="WhatsApp">💚</a>
                     </div>
                 </div>
             </div>
@@ -934,6 +998,23 @@
                 link.classList.remove('active');
                 if (link.getAttribute('href').slice(1) === current) {
                     link.classList.add('active');
+                }
+            });
+        });
+
+        // mobile menu toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            // animate hamburger
+            toggle.classList.toggle('open');
+        });
+        // close menu when link clicked (optional)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
                 }
             });
         });

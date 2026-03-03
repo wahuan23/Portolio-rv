@@ -6,120 +6,183 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
 </head>
- <style>
-		 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 
-        :root {
-            --primary: #000;
-            --secondary: #1a1a1a;
-            --accent: #00d4ff;
-            --accent-dark: #00a8cc;
-            --text-light: #ffffff;
-            --text-muted: #b0b0b0;
-            --bg-dark: #0a0a0a;
-        }
+	:root {
+		--primary: #000;
+		--secondary: #1a1a1a;
+		--accent: #00d4ff;
+		--accent-dark: #00a8cc;
+		--text-light: #ffffff;
+		--text-muted: #b0b0b0;
+		--bg-dark: #0a0a0a;
+	}
 
-        html {
-            scroll-behavior: smooth;
-        }
+	html {
+		scroll-behavior: smooth;
+	}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-		 /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 2rem;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        }
+	body {
+		font-family: 'Poppins', sans-serif;
+		background: var(--bg-dark);
+		color: var(--text-light);
+		line-height: 1.6;
+		overflow-x: hidden;
+	}
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+	/* Navigation */
+	.navbar {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background: rgba(10, 10, 10, 0.95);
+		backdrop-filter: blur(10px);
+		padding: 1.2rem 2rem;
+		z-index: 1000;
+		border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+	}
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+	.nav-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: 1400px;
+		margin: 0 auto;
+	}
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
+	.logo {
+		font-size: 1.4rem;
+		font-weight: 700;
+		background: linear-gradient(135deg, #00d4ff, #0099ff);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-clip: text;
+	}
 
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+	.nav-links {
+		display: flex;
+		gap: 2.5rem;
+		list-style: none;
+	}
 
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
+	.nav-links a {
+		color: var(--text-muted);
+		text-decoration: none;
+		font-weight: 500;
+		font-size: 0.95rem;
+		transition: color 0.3s ease;
+		position: relative;
+	}
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
-        }
+	.nav-links a:hover,
+	.nav-links a.active {
+		color: var(--accent);
+	}
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-	</style>
+	.nav-links a::after {
+		content: '';
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		width: 0;
+		height: 2px;
+		background: var(--accent);
+		transition: width 0.3s ease;
+	}
 
-<body class="is-preload">
+	.nav-links a:hover::after,
+	.nav-links a.active::after {
+		width: 100%;
+	}
+
+	/* toggle button for mobile */
+	.nav-toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+	}
+
+	.hamburger,
+	.hamburger::before,
+	.hamburger::after {
+		display: block;
+		width: 25px;
+		height: 3px;
+		background: var(--text-muted);
+		border-radius: 3px;
+		position: relative;
+		transition: all 0.3s ease;
+	}
+
+	.hamburger::before,
+	.hamburger::after {
+		content: '';
+		position: absolute;
+		left: 0;
+	}
+
+	.hamburger::before {
+		top: -8px;
+	}
+
+	.hamburger::after {
+		top: 8px;
+	}
+
+	@media (max-width: 768px) {
+		.nav-toggle {
+			display: block;
+		}
+
+		.nav-links {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: rgba(10, 10, 10, 0.95);
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+			padding: 1rem 0;
+			display: none;
+		}
+
+		.nav-links.open {
+			display: flex;
+		}
+	}
+</style>
+
+
+<body class="landing is-preload">
 
 	<div id="page-wrapper">
 		<nav class="navbar">
-        <div class="nav-container">
-          <div class="logo">KIDSHOME</div>
-            <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#a-propos">À propos</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+			<div class="nav-container">
+				<div class="logo">KIDSHOME</div>
+				<button class="nav-toggle" aria-label="Ouvrir le menu">
+					<span class="hamburger"></span>
+				</button>
+				<ul class="nav-links">
+					<li><a href="index.html#accueil">Accueil</a></li>
+					<li><a href="index.html#projets">Projets</a></li>
+					<li><a href="index.html#a-propos">À propos</a></li>
+					<li><a href="index.html#contact">Contact</a></li>
+				</ul>
+			</div>
+		</nav>
 
 		<section id="home" class="intro-section">
 			<div class="container-fond">
@@ -133,9 +196,7 @@
 							</span>
 
 						</h7>
-						<button type="button" class="site-btn" style="border-radius: 40px;height: 70px;">Voir plus
-							<span><i class="fas fa-arrow-right"></i></span>
-						</button>
+						
 					</div>
 					<!-- START THE CONTENT FOR THE VIDEO -->
 					<div class="cols-md-6 intros text-end">
@@ -179,13 +240,16 @@
 								<h2>TRAVAUX RÉALISÉS
 								</h2>
 								<p>
-									<strong>Rebranding de KIDSHOME :</strong> création d’une image plus accueillante et adaptée à 
+									<strong>Rebranding de KIDSHOME :</strong> création d’une image plus accueillante et
+									adaptée à
 									l’univers des enfants, tout en conservant un esprit chaleureux et familial.<br><br>
 
-									<strong>Refonte du site web :</strong> amélioration de l’interface (UI) et de l’expérience 
+									<strong>Refonte du site web :</strong> amélioration de l’interface (UI) et de
+									l’expérience
 									utilisateur (UX) pour une navigation plus simple et intuitive.<br><br>
 
-									<strong>Création d’une nouvelle identité visuelle :</strong> recherche de couleurs modernes, 
+									<strong>Création d’une nouvelle identité visuelle :</strong> recherche de couleurs
+									modernes,
 									joyeuses et adaptées à un environnement enfantin.
 								</p>
 								<div class="col-12"><span class="image fit"><img src="assets/img/KIDSHOME2-01.png"
@@ -216,53 +280,57 @@
 			<div class="inner">
 				<header class="major">
 					<h2>LES OUTILS UTILISÉS </h2>
-					<p>Afin de concevoir une application plus avancée, plusieurs outils professionnels ont été utilisés.</p>
+					<p>Afin de concevoir une application plus avancée, plusieurs outils professionnels ont été utilisés.
+					</p>
 				</header>
 				<ul class="features">
-					<li >
-						<img src="assets/img/icon/figma.png"
-										alt="Illustrator" style="width:70px; margin-bottom:15px;">
+					<li>
+						<img src="assets/img/icon/figma.png" alt="Illustrator" style="width:70px; margin-bottom:15px;">
 						<h3>FIGMA </h3>
-						<p>Figma est un outil essentiel pour la création de maquettes, de prototypes 
-						et de designs modernes adaptés aux besoins des utilisateurs.
+						<p>Figma est un outil essentiel pour la création de maquettes, de prototypes
+							et de designs modernes adaptés aux besoins des utilisateurs.
 						</p>
 					</li>
 					<li>
-						<img src="assets/img/icon/photoshop.png"
-										alt="Illustrator" style="width:70px; margin-bottom:15px;">
+						<img src="assets/img/icon/photoshop.png" alt="Illustrator"
+							style="width:70px; margin-bottom:15px;">
 						<h3>Adobe Photoshop</h3>
-						<p>Adobe Photoshop est idéal pour la retouche et le traitement des images, 
-						ainsi que pour la création de visuels graphiques de haute qualité.
+						<p>Adobe Photoshop est idéal pour la retouche et le traitement des images,
+							ainsi que pour la création de visuels graphiques de haute qualité.
 						</p>
 					</li>
 					<li>
 						<img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
-						alt="Illustrator" style="width:70px; margin-bottom:15px;">
+							alt="Illustrator" style="width:70px; margin-bottom:15px;">
 						<h3>Adobe Illustrator</h3>
-						<p>Adobe Illustrator est utilisé pour la création de logos, d’illustrations 
-						vectorielles et d’éléments graphiques précis.
+						<p>Adobe Illustrator est utilisé pour la création de logos, d’illustrations
+							vectorielles et d’éléments graphiques précis.
 						</p>
 					</li>
 					<li>
-						
-						
+
+
 					</li>
-					
+
 
 				</ul>
 			</div>
 		</section>
 		<!-- Footer -->
-		 <footer id="footer">
-                <ul class="icons">
-                    <li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                    <li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; KIDSHOME </li><li>Rova Rakotoson </li>
-                </ul>
-            </footer>
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span
+							class="label">Facebook</span></a></li>
+				<li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span
+							class="label">Instagram</span></a></li>
+				<li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span
+							class="label">Email</span></a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy; KIDSHOME </li>
+				<li>Rova Rakotoson </li>
+			</ul>
+		</footer>
 
 
 	</div>
@@ -287,6 +355,23 @@
 				link.classList.remove('active');
 				if (link.getAttribute('href').slice(1) === current) {
 					link.classList.add('active');
+				}
+			});
+		});
+
+		// mobile menu toggle
+		const toggle = document.querySelector('.nav-toggle');
+		const navLinks = document.querySelector('.nav-links');
+		toggle.addEventListener('click', () => {
+			navLinks.classList.toggle('open');
+			// animate hamburger
+			toggle.classList.toggle('open');
+		});
+		// close menu when link clicked (optional)
+		document.querySelectorAll('.nav-links a').forEach(link => {
+			link.addEventListener('click', () => {
+				if (navLinks.classList.contains('open')) {
+					navLinks.classList.remove('open');
 				}
 			});
 		});

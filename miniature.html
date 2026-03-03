@@ -11,117 +11,182 @@
         <link rel="stylesheet" href="assets/css/noscript.css" />
     </noscript>
 </head>
- <style>
-		 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        :root {
-            --primary: #000;
-            --secondary: #1a1a1a;
-            --accent: #00d4ff;
-            --accent-dark: #00a8cc;
-            --text-light: #ffffff;
-            --text-muted: #b0b0b0;
-            --bg-dark: #0a0a0a;
-        }
+    :root {
+        --primary: #000;
+        --secondary: #1a1a1a;
+        --accent: #00d4ff;
+        --accent-dark: #00a8cc;
+        --text-light: #ffffff;
+        --text-muted: #b0b0b0;
+        --bg-dark: #0a0a0a;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-		 /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 2rem;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    /* Navigation */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1.2rem 2rem;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #00d4ff, #0099ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--accent);
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+        width: 100%;
+    }
+
+    /* toggle button for mobile */
+    .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--text-muted);
+        border-radius: 3px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        left: 0;
+    }
+
+    .hamburger::before {
+        top: -8px;
+    }
+
+    .hamburger::after {
+        top: 8px;
+    }
+
+    @media (max-width: 768px) {
+        .nav-toggle {
+            display: block;
         }
 
         .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
-
-        .nav-links a::after {
-            content: '';
             position: absolute;
-            bottom: -4px;
+            top: 100%;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            display: none;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
+        .nav-links.open {
+            display: flex;
         }
-	</style>
+    }
+</style>
+
 <body class="landing is-preload">
 
     <!-- Page Wrapper -->
     <div id="page-wrapper">
 
         <!-- Header -->
-    <nav class="navbar">
-        <div class="nav-container">
-          <div class="logo">IA </div>
-            <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#a-propos">À propos</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">IA </div>
+                <!-- hamburger toggle for mobile -->
+                <button class="nav-toggle" aria-label="Ouvrir le menu">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html#accueil">Accueil</a></li>
+                    <li><a href="index.html#projets">Projets</a></li>
+                    <li><a href="index.html#a-propos">À propos</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
 
         <!-- Banner -->
         <section id="banner">
@@ -137,8 +202,8 @@
             <div class="inner">
                 <header class="major">
                     <h2>Création d'un visuel <br />
-                        sur le danger de  L'Intélligence Artificiellle</h2>
-                    <p>Le but de ce projet est de demontrer à l'aide d'un visuel  <br />
+                        sur le danger de l'Intelligence Artificielle</h2>
+                    <p>Le but de ce projet est de démontrer à l'aide d'un visuel <br />
                         les menaces que l'IA pourrait causer.</p>
                 </header>
                 <ul class="icons major">
@@ -157,21 +222,21 @@
                 <div class="content">
                     <h2>PROCESS<br />
                         CREA </h2>
-                    <p>Dans sa création , le plus grand défis était de persuader à l'aide d'une image 
-                        une sensation de peur sans pour autant éffrayer le lecteur , c'est à dire qu'
-                        on veut inciter le lecteur pour le mettre en action et non pour le faire fuir . 
+                    <p>Dans sa création , le plus grand défis était de persuader à l'aide d'une image
+                        une sensation de peur sans pour autant effrayer le lecteur , c'est à dire qu'
+                        on veut inciter le lecteur pour le mettre en action et non pour le faire fuir .
                     </p>
                 </div>
             </section>
             <section class="spotlight">
                 <div class="image"><img src="assets/img/miniature.png" style="height: auto;" alt="" /></div>
                 <div class="content">
-                    <h2>Model proposé<br />
+                    <h2>Modèle proposé<br />
                     </h2>
-                    <p>Ajout d'un dirrigeant puissant et aussi populaire   pour eveiller la conscience 
-                        que si l'IA continue , elle prendra notre controle . 
-                        Des couleurs et polices modernes ont été choisies pour attirer les jeunes , les 
-                        principales concernées sur le sujet . 
+                    <p>Ajout d'un dirigeant puissant et aussi populaire pour éveiller la conscience
+                        que si l'IA continue , elle prendra notre contrôle .
+                        Des couleurs et polices modernes ont été choisies pour attirer les jeunes , les
+                        principales concernées sur le sujet .
                     </p>
                 </div>
             </section>
@@ -182,19 +247,21 @@
             <div class="inner">
                 <header class="major">
                     <h2>LES OUTILS UTILISES </h2>
-                    <p>Pour émettre avec soin l'image transmise par le Visuel  , <br />
+                    <p>Pour émettre avec soin l'image transmise par le Visuel , <br />
                         plusieurs outils ont été utilisés .</p>
                 </header>
                 <ul class="features">
                     <li>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"alt="Illustrator" style="width:70px; margin-bottom:15px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
+                            alt="Illustrator" style="width:70px; margin-bottom:15px;">
                         <h3>Adobe Illustrator</h3>
-                        <p>Quand on parle de création d'Illusatration  , one ne peut pas se séparer d'illustrator dans sa
-                            capacité a proposer plusieurs outils
+                        <p>Quand on parle de création d'illustration , on ne peut pas se séparer d'illustrator dans sa
+                            capacité à proposer plusieurs outils
                             de conception artistique.</p>
                     </li>
-                    <li >
-                        <img src="assets/img/icon/photoshop.png" alt="Illustrator" style="width:70px; margin-bottom:15px;">
+                    <li>
+                        <img src="assets/img/icon/photoshop.png" alt="Illustrator"
+                            style="width:70px; margin-bottom:15px;">
                         <h3>Adobe Photoshop</h3>
                         <p>Adobe Photoshop est idéale en terme de traitement des images alors il est impératif de
                             créer le visuel via cet outil .</p>
@@ -208,21 +275,23 @@
 
         <!-- Footer -->
         <footer id="footer">
-                <ul class="icons">
-                    <li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                    <li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; INTELLIGENCE ARTIFICIELLE </li><li>Rova Rakotoson </li>
-                </ul>
-            </footer>
+            <ul class="icons">
+                <li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span
+                            class="label">Facebook</span></a></li>
+                <li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span
+                            class="label">Instagram</span></a></li>
+                <li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span
+                            class="label">Email</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; INTELLIGENCE ARTIFICIELLE </li>
+                <li>Rova Rakotoson </li>
+            </ul>
+        </footer>
 
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
@@ -252,8 +321,24 @@
                 }
             });
         });
-    </script>
 
+        // mobile menu toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            // animate hamburger
+            toggle.classList.toggle('open');
+        });
+        // close menu when link clicked (optional)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

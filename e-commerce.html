@@ -1,280 +1,376 @@
 <!DOCTYPE HTML>
 
 <html>
-	<head>
-		<title>E-Commerce</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	 <style>
-		 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        :root {
-            --primary: #000;
-            --secondary: #1a1a1a;
-            --accent: #00d4ff;
-            --accent-dark: #00a8cc;
-            --text-light: #ffffff;
-            --text-muted: #b0b0b0;
-            --bg-dark: #0a0a0a;
-        }
+<head>
+    <title>E-Commerce</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    :root {
+        --primary: #000;
+        --secondary: #1a1a1a;
+        --accent: #00d4ff;
+        --accent-dark: #00a8cc;
+        --text-light: #ffffff;
+        --text-muted: #b0b0b0;
+        --bg-dark: #0a0a0a;
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-		 /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 2rem;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-        }
+    html {
+        scroll-behavior: smooth;
+    }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--bg-dark);
+        color: var(--text-light);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #00d4ff, #0099ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+    /* Navigation */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1.2rem 2rem;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #00d4ff, #0099ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2.5rem;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.3s ease;
+        position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+        color: var(--accent);
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+        width: 100%;
+    }
+
+    /* toggle button for mobile */
+    .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: var(--text-muted);
+        border-radius: 3px;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        position: absolute;
+        left: 0;
+    }
+
+    .hamburger::before {
+        top: -8px;
+    }
+
+    .hamburger::after {
+        top: 8px;
+    }
+
+    @media (max-width: 768px) {
+        .nav-toggle {
+            display: block;
         }
 
         .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent);
-        }
-
-        .nav-links a::after {
-            content: '';
             position: absolute;
-            bottom: -4px;
+            top: 100%;
             left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s ease;
+            right: 0;
+            background: rgba(10, 10, 10, 0.95);
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            display: none;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
+        .nav-links.open {
+            display: flex;
         }
-	</style>
-	<body class="is-preload">
+    }
+</style>
 
-		<div id="page-wrapper">
-			<nav class="navbar">
-        <div class="nav-container">
-          <div class="logo">E-COMMERCE</div>
-            <ul class="nav-links">
-                <li><a href="index.html#accueil">Accueil</a></li>
-                <li><a href="index.html#projets">Projets</a></li>
-                <li><a href="index.html#a-propos">À propos</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+<body class="is-preload">
+
+    <div id="page-wrapper">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">E-COMMERCE</div>
+                <!-- hamburger toggle for mobile -->
+                <button class="nav-toggle" aria-label="Ouvrir le menu">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html#accueil">Accueil</a></li>
+                    <li><a href="index.html#projets">Projets</a></li>
+                    <li><a href="index.html#a-propos">À propos</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <article id="main2">
+            <header>
+                <h2>E-COMMERCE</h2>
+                <p>Un siteweb e-commerce avancée <br />
+                </p>
+            </header>
+            <section class="wrapper style5">
+                <div class="inner">
+                    <section>
+                        <h2>E-COMMERCE SiteWeb <br />
+                        </h2>
+                        <p>
+                            Quand on parle de site e-commerce, on pense souvent à la commande de produits
+                            et à la validation du panier. Mais le système ne s’arrête pas là : grâce à la
+                            gestion des produits par l’administrateur, le site permet de créer des promotions
+                            pour chaque produit en un clic, ainsi que des promotions globales sur tous les
+                            produits selon les critères souhaités.
+                            <br>
+                            L’objectif est donc de faciliter à la fois l’expérience client et le travail
+                            de l’administrateur.
+                        </p>
+
+                        <div class="box alt">
+                            <div class="row gtr-50 gtr-uniform">
+                                <div class="col-12"><span class="image fit"><img src="assets/img/e-co.png"
+                                            alt="" /></span></div>
+                                <h2>Recherche Multicritere
+                                </h2>
+                                <p>
+                                    Un système de recherche multicritère a été proposé pour faciliter la recherche de
+                                    tous les produits,
+                                    que ce soit par prix, catégorie, promotion ou marque.
+                                    <br>
+                                    À noter que le système détecte automatiquement la marque en fonction de la catégorie
+                                    choisie.
+                                </p>
+
+
+                                <p>
+                                <div class="col-12"><span class="image fit"><img src="assets/img/E-COM1.png"
+                                            alt="" /></span></div>
+                                <div class="col-12"><span class="image fit"><img src="assets/img/E-COM2.png"
+                                            alt="" /></span></div>
+
+                                </p>
+
+                            </div>
+                        </div>
+
+
+                    </section>
+
+                </div>
+
+                <div class="inner">
+                    <section>
+
+                        <div class="box alt">
+                            <div class="row gtr-50 gtr-uniform">
+                                <div class="col-12"><span class="image fit"><img src="images/cowork2.png"
+                                            alt="" /></span></div>
+
+                            </div>
+                        </div>
+
+
+                    </section>
+
+                </div>
+
+                <div class="inner">
+                    <section>
+                        <div class="box alt">
+                            <div class="row gtr-50 gtr-uniform">
+
+
+                                <div class="box alt">
+                                    <div class="row gtr-50 gtr-uniform">
+                                        <div class="col-12"><span class="image fit"><img src="images/cowork4.png"
+                                                    alt="" /></span></div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </section>
+
+                </div>
+            </section>
+
+
+        </article>
+
+        <!-- Footer -->
+        <section id="three" class="wrapper style3 special">
+            <div class="inner">
+                <header class="major">
+                    <h2>LES LANGAGES UTILISÉS</h2>
+                    <p>Afin d'aboutir à une application plus avancée,<br />
+                        plusieurs technologies ont été utilisées.</p>
+                </header>
+
+                <ul class="features">
+
+                    <li>
+                        <img src="assets/img/icon/php.png" alt="CodeIgniter" style="width:70px; margin-bottom:15px;">
+                        <h3>CodeIgniter (PHP)</h3>
+                        <p>Ce framework MVC a permis de développer une application rapide,
+                            performante et facile à maintenir.</p>
+                    </li>
+
+                    <li>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg"
+                            alt="PostgreSQL" style="width:70px; margin-bottom:15px;">
+                        <h3>POSTGRESQL</h3>
+                        <p>PostgreSQL a été utilisé pour gérer les données efficacement grâce à
+                            ses performances et sa fiabilité.</p>
+                    </li>
+
+                </ul>
+
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span
+                            class="label">Facebook</span></a></li>
+                <li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span
+                            class="label">Instagram</span></a></li>
+                <li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span
+                            class="label">Email</span></a></li>
             </ul>
-        </div>
-    </nav>
-					<article id="main2">
-						<header>
-							<h2>E-COMMERCE</h2>
-							<p>Un siteweb e-commerce avancée    <br />
-								</p>
-						</header>
-						<section class="wrapper style5">
-							<div class="inner">
-								<section>
-										<h2>E-COMMERCE SiteWeb <br />
-											</h2>
-										<p>
-										Quand on parle de site e-commerce, on pense souvent à la commande de produits
-										et à la validation du panier. Mais le système ne s’arrête pas là : grâce à la
-										gestion des produits par l’administrateur, le site permet de créer des promotions
-										pour chaque produit en un clic, ainsi que des promotions globales sur tous les
-										produits selon les critères souhaités.
-										<br>
-										L’objectif est donc de faciliter à la fois l’expérience client et le travail
-										de l’administrateur.
-									</p>
+            <ul class="copyright">
+                <li>&copy; E - COMMERCE </li>
+                <li>Rova Rakotoson </li>
+            </ul>
+        </footer>
 
-									<div class="box alt">
-										<div class="row gtr-50 gtr-uniform">
-											<div class="col-12"><span class="image fit"><img src="assets/img/e-co.png" alt="" /></span></div>
-											<h2>Recherche Multicritere 
-											</h2>
-											<p>
-												Un système de recherche multicritère a été proposé pour faciliter la recherche de tous les produits,
-												que ce soit par prix, catégorie, promotion ou marque.
-												<br>
-												À noter que le système détecte automatiquement la marque en fonction de la catégorie choisie.
-											</p>
-
-											
-											<p>									
-												<div class="col-12"><span class="image fit"><img src="assets/img/E-COM1.png" alt="" /></span></div>
-												<div class="col-12"><span class="image fit"><img src="assets/img/E-COM2.png" alt="" /></span></div>
-
-											</p>
-										
-										</div>
-									</div>
-									
-									
-								</section>
-
-							</div>
-
-							<div class="inner">
-								<section>
-								
-									<div class="box alt">
-										<div class="row gtr-50 gtr-uniform">										
-											<div class="col-12"><span class="image fit"><img src="images/cowork2.png" alt="" /></span></div>
-										
-										</div>
-									</div>
-									
-									
-								</section>
-
-							</div>
-								
-							<div class="inner">
-								<section>
-									<div class="box alt">
-										<div class="row gtr-50 gtr-uniform">
-										
-											
-											<div class="box alt">
-											<div class="row gtr-50 gtr-uniform">										
-												<div class="col-12"><span class="image fit"><img src="images/cowork4.png" alt="" /></span></div>
-											
-											</div>
-									</div>
-										
-										</div>
-									</div>
-									
-									
-								</section>
-
-							</div>
-						</section>
-
-					
-					</article>
-
-				<!-- Footer -->
-						<section id="three" class="wrapper style3 special">
-    <div class="inner">
-        <header class="major">
-            <h2>LES LANGAGES UTILISÉS</h2>
-            <p>Afin d'aboutir à une application plus avancée,<br />
-                plusieurs technologies ont été utilisées.</p>
-        </header>
-
-        <ul class="features">
-
-            <li>
-                <img src="assets/img/icon/php.png"
-                    alt="CodeIgniter" style="width:70px; margin-bottom:15px;">
-                <h3>CodeIgniter (PHP)</h3>
-                <p>Ce framework MVC a permis de développer une application rapide,
-                    performante et facile à maintenir.</p>
-            </li>
-
-            <li>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg"
-                    alt="PostgreSQL" style="width:70px; margin-bottom:15px;">
-                <h3>POSTGRESQL</h3>
-                <p>PostgreSQL a été utilisé pour gérer les données efficacement grâce à 
-                    ses performances et sa fiabilité.</p>
-            </li>
-
-        </ul>
 
     </div>
-</section>
-			<!-- Footer -->
-			 <footer id="footer">
-                <ul class="icons">
-                    <li><a href="https://facebook.com/rova.rakotoson.98" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                    <li><a href="https://instagram.com/keyartdesign12" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                    <li><a href="mailto:rovarakotoson2004@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-                </ul>
-                <ul class="copyright">
-                    <li>&copy; E - COMMERCE </li><li>Rova Rakotoson </li>
-                </ul>
-            </footer>
 
+    <!-- Scripts -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        // Active navigation link based on scroll position
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section[id]');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-			</div>
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery-3.3.1.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script>
-			// Active navigation link based on scroll position
-			window.addEventListener('scroll', () => {
-				let current = '';
-				const sections = document.querySelectorAll('section[id]');
-				sections.forEach(section => {
-					const sectionTop = section.offsetTop;
-					const sectionHeight = section.clientHeight;
-					if (pageYOffset >= sectionTop - 200) {
-						current = section.getAttribute('id');
-					}
-				});
+        // mobile menu toggle
+        const toggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        toggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            // animate hamburger
+            toggle.classList.toggle('open');
+        });
+        // close menu when link clicked (optional)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                }
+            });
+        });
+    </script>
 
-				document.querySelectorAll('.nav-links a').forEach(link => {
-					link.classList.remove('active');
-					if (link.getAttribute('href').slice(1) === current) {
-						link.classList.add('active');
-					}
-				});
-			});
-		</script>
+</body>
 
-	</body>
 </html>
