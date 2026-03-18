@@ -120,26 +120,7 @@
             padding: 0.5rem;
         }
 
-        .hamburger,
-        .hamburger::before,
-        .hamburger::after {
-            display: block;
-            width: 25px;
-            height: 3px;
-            background: var(--text-muted);
-            border-radius: 3px;
-            position: relative;
-            transition: all 0.3s ease;
-
-        }
-
-        .hamburger::before,
-        .hamburger::after {
-            content: '';
-            position: absolute;
-            left: 0;
-        }
-
+       
         .hamburger::before {
             top: -8px;
         }
@@ -669,10 +650,7 @@
         @media (max-width: 768px) {
             .nav-links {
                 gap: 1.5rem;
-                font-size: 0.85rem;
-            }
-
-            .hero-content {
+                font-size: 0.85rem;  
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
@@ -716,7 +694,7 @@
             <div class="logo" ></div>
             <!-- hamburger toggle for mobile -->
             <button class="nav-toggle" aria-label="Ouvrir le menu">
-                <span class="hamburger"></span>
+              
             </button>
             <ul class="nav-links">
                 <li><a href="#accueil" class="active">Accueil</a></li>
